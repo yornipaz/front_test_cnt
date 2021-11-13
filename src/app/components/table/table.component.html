@@ -1,0 +1,75 @@
+<div>
+  <p class="o-text">{{ text }}</p>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Numero de documento</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Prioridad</th>
+        <th scope="col">Riesgo</th>
+        <th scope="col">Atender</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries; let i = index">
+        <th scope="row">{{ i }}</th>
+        <td>
+          {{ country.documentNumber | number }}
+        </td>
+        <td>{{ country.firstName }}</td>
+        <td>{{ country.lastName }}</td>
+        <td>{{ country.age }}</td>
+        <td>{{ country.priority }}</td>
+        <td>{{ country.risk }}</td>
+
+        <td>
+          <form 
+          [formGroup]="fr"
+        
+          (ngSubmit)="updateState($event)"
+          >
+          <input width="2" height="2" type="number" formControlName="aten"  [value]="country.id" style="visibility: hidden;" >
+          <button
+           
+           
+            
+            id="btn-primary"
+            type="submit"
+          >
+            <img
+              src="../../../assets/icons8-marcapáginas.svg"
+              alt="logo"
+              height="20"
+              width="20"
+            />
+          </button></form>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination
+      [collectionSize]="collectionSize"
+      [(page)]="page"
+      [pageSize]="pageSize"
+      (pageChange)="refreshCountries()"
+    >
+    </ngb-pagination>
+
+    <select
+      class="custom-select"
+      style="width: auto"
+      [(ngModel)]="pageSize"
+      (ngModelChange)="refreshCountries()"
+    >
+      <option [ngValue]="2">2 items per page</option>
+      <option [ngValue]="4">4 items per page</option>
+      <option [ngValue]="6">6 items per page</option>
+    </select>
+  </div>
+</div>

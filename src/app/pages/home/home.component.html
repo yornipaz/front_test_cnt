@@ -1,0 +1,33 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row ">
+    <div class="col-lg-6 o-text-p o-row">
+      <p>Atualizar La lista de pasientes</p>
+
+    </div>
+    <div class="col-lg-2 o-row">
+      <button (click)="updatePatient($event)" id="btn-primary" type="submit"><img
+        src="../../../assets/icons8-actualizar.svg" alt="logo" height="30"
+        width="60"></button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <app-table [text]="title[0]"[patients]="orderPatientByPriority()" ></app-table>
+    </div>
+    <div class="col-lg-8">
+      <app-table [text]="title[1]"[patients]="orderPatientByRisk()" ></app-table>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6">
+        <p>El paciente fumador de mayor Prioridad con estado Pendiente es: <code>NgbPagination</code></p>
+    </div>
+    <div class="col-lg-6">
+        <p>El paciente que tiene la menor edad con estado Pendiente es: <code>NgbPagination</code></p>
+    </div>
+    <div class="col-lg-6">
+        <p>El paciente que tiene la menor edad con estado Pendiente es: <code>NgbPagination</code></p>
+    </div>
+  </div>
+</div>

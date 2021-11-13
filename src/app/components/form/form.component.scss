@@ -1,0 +1,73 @@
+$color: #adb5bd;
+
+#btn-primary {
+  background: #6453ec;
+  border: none;
+  padding: 10px 40px;
+  border-radius: 10px;
+  font-family: "Ailerons";
+  font-size: 1.4em;
+  width: 12rem;
+  color: white;
+}
+.content{
+    display: flex;
+    justify-content: center;
+}
+.prt{
+  padding-right: 2rem;;
+}
+form {
+  
+  justify-content: center;
+  width: 90%;
+  margin-top: 2rem;
+}
+.col-8 {
+  margin-bottom: 5px;
+}
+select:focus {
+  background-color: #0b2239;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: white;
+}
+option {
+  background-color: #0b2239;
+  color: white;
+  font-family: sans-serif;;
+  font-size: 10px;
+  font-weight: 600;
+
+  border-bottom: blanchedalmond;
+  text-align: end;
+}
+.submit {
+ display: flex;
+ justify-content: center;
+ margin-top: 2rem;
+}
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="text"]::placeholder,
+input[type="email"]::placeholder,
+input[type="tel"]::placeholder,
+textarea::placeholder,
+textarea,
+textarea:focus {
+  background-color: #0b2239;
+  color: $color;
+}
+@media only screen and (max-width: 576px) {
+  #btn-primary {
+    width: 7rem;
+    font-size: 0.7em;
+  }
+}
+@media only screen and (max-width: 768px) {
+  #btn-primary {
+    width: 8rem;
+    font-size: 0.9em;
+  }
+}

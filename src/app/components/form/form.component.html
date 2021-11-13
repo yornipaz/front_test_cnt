@@ -1,0 +1,155 @@
+<div class="content">
+  <form
+    [formGroup]="contacts"
+    class="row form-contacts"
+    (ngSubmit)="onSubmit($event)"
+  >
+    <div class="col-8 col-md-6 firstName">
+      <input
+        type="text"
+        placeholder="Nombres*"
+        formControlName="firstName"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.firstName.errors }"
+      />
+      <div *ngIf="submitted && f.firstName.errors" class="invalid-feedback">
+        <div class="text-start" *ngIf="f.firstName.errors.required">
+          Porfavor ingrese su Nombres
+        </div>
+      </div>
+    </div>
+    <div class="col-8 col-md-6 lastName">
+      <input
+        type="text"
+        placeholder="Apellidos*"
+        formControlName="lastName"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }"
+      />
+      <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
+        <div class="text-start" *ngIf="f.lastName.errors.required">
+          Porfavor ingrese sus Apellidos
+        </div>
+      </div>
+    </div>
+    <div class="col-8 col-8 col-md-6">
+      <input
+        type="text"
+        placeholder="Numero de Documento*"
+        formControlName="documento"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+      />
+      <div *ngIf="submitted && f.documento.errors" class="invalid-feedback">
+        <div class="text-start" *ngIf="f.documento.errors.required">
+          Porfavor ingrese el numero de documento
+        </div>
+      </div>
+    </div>
+    <div class="col-8 col-md-6 phoneNumber">
+      <input
+        type="text"
+        placeholder="Años de edad*"
+        formControlName="edad"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.edad.errors }"
+      />
+      <div *ngIf="submitted && f.edad.errors" class="invalid-feedback">
+        <div class="text-start" *ngIf="f.edad.errors.required">
+          Porfavor ingrese sus Apellidos
+        </div>
+      </div>
+    </div>
+    <div class="col-8 col-md-6 company">
+      <input
+        type="text"
+        placeholder="Dirección"
+        class="form-control"
+        formControlName="direccion"
+      />
+    </div>
+    <div class="col-8 col-md-6 how">
+      <input
+        type="text"
+        placeholder="Sexo (M / F)	"
+        class="form-control"
+        formControlName="sex"
+      />
+    </div>
+    <div class="col-8 col-md-6 lastName">
+      <input
+        type="text"
+        placeholder="Peso en kilogramos	*"
+        formControlName="peso"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.peso.errors }"
+      />
+      <div *ngIf="submitted && f.peso.errors" class="invalid-feedback">
+        <div class="text-start" *ngIf="f.peso.errors.required">
+          Porfavor ingrese su Peso en kilogramos
+        </div>
+      </div>
+    </div>
+    <div class="col-8 col-md-6 lastName">
+      <input
+        type="text"
+        placeholder="Estatura en centimetros*"
+        formControlName="estatura"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.estatura.errors }"
+      />
+      <div *ngIf="submitted && f.estatura.errors" class="invalid-feedback">
+        <div class="text-start" *ngIf="f.estatura.errors.required">
+          Porfavor ingrese su Estatura en centimetros
+        </div>
+      </div>
+    </div>
+    <div class="form-group form-check col-8 col-md-6 prt ">
+      <label  class="form-check-label"
+        >¿Es Fumador (SI / NO)?
+      </label>
+      <input
+        type="checkbox"
+        (click)="fumador=!fumador"
+        id="acceptTerms"
+        class="form-check-input"
+      />
+    </div>
+    <div class="col-8 col-md-6 lastName">
+      <input
+      *ngIf="fumador"
+        type="text"
+        placeholder="Años fumando"
+        formControlName="yf"
+        class="form-control fumador"
+       
+        [ngClass]="{ 'is-invalid': submitted && f.yf.errors }"
+      />
+    </div>
+
+    <div class="form-group form-check col-8 col-md-6 prt">
+      <label class="form-check-label"
+        >¿Maneja dieta alimenticia (SI / NO)?
+      </label>
+      <input type="checkbox" id="dieta" class="form-check-input " (click)="dieta=!dieta" />
+    </div>
+    <div class="form-group col-8 col-md-6">
+      <label  class="form-check-label"
+        >Relación PesoEstatura
+      </label>
+      <select
+      formControlName="relacion"
+        [(ngModel)]="optionSelected"
+       
+
+      >
+        <option [value]="i" *ngFor="let i of listaRelacion ">{{i}}</option>
+
+      </select>
+    </div>
+
+    <div class="col-8 col-md-12 submit">
+      <button id="btn-primary" type="submit">Crear</button>
+    </div>
+  </form>
+</div>
